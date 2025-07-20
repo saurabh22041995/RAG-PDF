@@ -1,6 +1,6 @@
 # RAG PDF Question Answering App
 
-A Retrieval-Augmented Generation (RAG) application that allows you to upload PDF documents and ask questions about their content using AI. Built with Node.js, Express.js, Hugging Face API, and a custom vector store.
+A Retrieval-Augmented Generation (RAG) application that allows you to upload PDF documents and ask questions about their content using AI. Built with Node.js, Express.js, Google Gemini API, and a custom vector store.
 
 ## Features
 
@@ -14,7 +14,7 @@ A Retrieval-Augmented Generation (RAG) application that allows you to upload PDF
 ## Tech Stack
 
 - **Backend**: Node.js + Express.js
-- **AI Models**: Hugging Face API (sentence-transformers for embeddings, DialoGPT for generation)
+- **AI Models**: Google Gemini API (embedding-001 for embeddings, gemini-1.5-flash for generation)
 - **Vector Database**: Custom implementation with cosine similarity search
 - **PDF Processing**: pdf-parse library
 - **Frontend**: Vanilla JavaScript with modern CSS
@@ -23,7 +23,7 @@ A Retrieval-Augmented Generation (RAG) application that allows you to upload PDF
 
 - Node.js (v14 or higher)
 - npm or yarn
-- Hugging Face API key
+- Google Gemini API key
 
 ## Installation
 
@@ -46,23 +46,22 @@ A Retrieval-Augmented Generation (RAG) application that allows you to upload PDF
 
 4. **Edit `.env` file**
    ```env
-   HUGGING_FACE_API_KEY=your_hugging_face_api_key_here
+   GEMINI_API_KEY=your_gemini_api_key_here
    PORT=3000
    NODE_ENV=development
-   EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
-   GENERATION_MODEL=microsoft/DialoGPT-medium
-   VECTOR_DIMENSION=384
+   GEMINI_MODEL=gemini-1.5-flash
+   EMBEDDING_MODEL=embedding-001
+   VECTOR_DIMENSION=768
    INDEX_PATH=./data/faiss_index
    ```
 
-## Getting a Hugging Face API Key
+## Getting a Google Gemini API Key
 
-1. Go to [Hugging Face](https://huggingface.co/)
-2. Create an account or sign in
-3. Go to your profile settings
-4. Navigate to "Access Tokens"
-5. Create a new token with "read" permissions
-6. Copy the token and add it to your `.env` file
+1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Sign in with your Google account
+3. Click "Create API Key"
+4. Copy the generated API key
+5. Add it to your `.env` file
 
 ## Usage
 
@@ -265,4 +264,4 @@ If you encounter any issues or have questions, please:
 
 ---
 
-**Happy Question Answering! 🤖📚** 
+**Happy Question Answering! 🤖📚**
