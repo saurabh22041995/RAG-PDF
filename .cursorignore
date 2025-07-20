@@ -1,0 +1,8 @@
+# Ignore common files but allow .env
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Explicitly allow .env files
+!.env 
