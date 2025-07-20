@@ -59,7 +59,13 @@ const ragService = new RAGService(geminiService, vectorStore);
 
 // Routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    const indexPath = path.join(__dirname, 'public', 'index.html');
+    if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+    } else {
+        // Fallback for Azure deployment
+        res.sendFile(path.join(__dirname, 'index.html'));
+    }
 });
 
 // Upload PDF and process
